@@ -5,6 +5,7 @@ import "@reach/dialog/styles.css"
 const Modal = ({ children, showDialog, onDismiss, focusRef }) => {
   return (
     <Dialog
+      aria-label="Modal window"
       className="w-full md:w-3/4 lg:w-1/2"
       isOpen={showDialog}
       onDismiss={onDismiss}
