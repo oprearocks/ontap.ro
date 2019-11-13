@@ -11,6 +11,8 @@ import { useStaticQuery, graphql } from "gatsby"
 
 import Header from "./header"
 import Footer from "./Footer"
+import { ProvideAuth } from '../lib/use-auth'
+
 import "./layout.css"
 
 require("typeface-ibm-plex-mono")
@@ -28,13 +30,13 @@ const Layout = ({ children }) => {
   `)
 
   return (
-    <>
+    <ProvideAuth>
       <Header siteTitle={data.site.siteMetadata.title} />
       <div>
         <main>{children}</main>
       </div>
       <Footer />
-    </>
+    </ProvideAuth>
   )
 }
 
