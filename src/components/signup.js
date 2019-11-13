@@ -1,6 +1,6 @@
 import React from "react"
 import { Formik, Form, Field, ErrorMessage } from "formik"
-import FormValidationSchema from "./form-validation-schema"
+import { SignUpFormValidationSchema } from "../lib/form-validation-schema"
 import * as firebase from "firebase"
 
 const firebaseConfig = {

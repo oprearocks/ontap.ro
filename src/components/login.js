@@ -1,6 +1,6 @@
 import React from "react"
 import { Formik, Form, Field, ErrorMessage } from "formik"
-import FormValidationSchema from "./form-validation-schema"
+import { LoginFormValidationSchema } from "../lib/form-validation-schema"
 
 const Login = ({ focusRef }) => (
   <>
@@ -11,7 +11,7 @@ const Login = ({ focusRef }) => (
         password: "",
       }}
       validateOnBlur
-      validationSchema={FormValidationSchema}
+      validationSchema={LoginFormValidationSchema}
       onSubmit={async (values, actions) => {
         console.log(values)
       }}
