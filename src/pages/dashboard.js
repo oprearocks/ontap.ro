@@ -1,7 +1,8 @@
 import React, { useEffect } from "react"
-import { Link } from "gatsby"
+import { Link, navigate } from "gatsby"
 
 import Layout from "../components/layout"
+import { useAuth } from "../lib/use-auth"
 import Image from "../components/image"
 import SEO from "../components/seo"
 import bear from "../images/bear.jpg"
