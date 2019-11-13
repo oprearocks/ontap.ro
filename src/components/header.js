@@ -13,13 +13,16 @@ const Header = ({ siteTitle }) => {
     e.preventDefault()
     const href = e.target.getAttribute("href").replace("#", "")
     setModalType(href)
-    debugger
     toggleDialog()
   }
   const phoneNumberRef = useRef()
   return (
     <div className="w-full bg-gray-900 text-white py-6 font-mono">
-      <Modal focusRef={phoneNumberRef} showDialog={showDialog} onDismiss={toggleDialog}>
+      <Modal
+        focusRef={phoneNumberRef}
+        showDialog={showDialog}
+        onDismiss={toggleDialog}
+      >
         {modalType === ModalTypes.LOGIN ? (
           <Login focusRef={phoneNumberRef} />
         ) : (
