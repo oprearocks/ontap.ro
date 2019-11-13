@@ -23,27 +23,37 @@ const SignUp = ({ focusRef }) => (
     </p>
     <Formik
       initialValues={{
+        name: "",
         email: "",
         password: "",
       }}
       validateOnBlur
-      validationSchema={FormValidationSchema}
+      validationSchema={SignUpFormValidationSchema}
       onSubmit={async (values, actions) => {
-        const { email, password } = values
+        const { name, email, password } = values
         try {
-          const result = await app
+          const { user } = await app
             .auth()
             .createUserWithEmailAndPassword(email, password)
-          if (result) {
-            const emailsent = await app
-              .auth()
-              .currentUser.sendEmailVerification()
-            console.log("Email sent!")
+
+          if (!user) {
+            console.log(`Something went wrong, try again`)
           }
+
+          if (name) {
+            await app.auth().currentUser.updateProfile({
+              displayName: name,
+            })
+          }
+
+          const emailsent = await app.auth().currentUser.sendEmailVerification()
+          console.log(
+            `Congratulations ${name} we've sent you a confirmation email. Check your inbox.`
+          )
         } catch (error) {
           const errorCode = error.code
           const errorMessage = error.message
-          if (errorCode == "auth/weak-password") {
+          if (errorCode === "auth/weak-password") {
             alert("The password is too weak.")
           } else {
             alert(errorMessage)
@@ -56,7 +66,25 @@ const SignUp = ({ focusRef }) => (
         return (
           <Form>
             <label
-              className="block text-xl font-mono text-gray-800 font-bold"
+              className="block text-xl font-mono text-gray-800 font-bold mt-4"
+              htmlFor="name"
+            >
+              Full Name
+              <ErrorMessage
+                className="inline-block text-base text-red-800 bg-red-200 px-2 ml-2"
+                name="name"
+                component="span"
+              />
+            </label>
+            <Field
+              id="name"
+              name="name"
+              innerRef={focusRef}
+              className="text-2xl font-mono font-bold tracking-wider appearance-none bg-gray-200 py-4 px-8 w-full lg:w-3/4 xl:w-1/2"
+              placeholder="Ion Zăpadă"
+            />
+            <label
+              className="block text-xl font-mono text-gray-800 font-bold mt-4"
               htmlFor="email"
             >
               Email
@@ -69,12 +97,11 @@ const SignUp = ({ focusRef }) => (
             <Field
               id="email"
               name="email"
-              innerRef={focusRef}
               className="text-2xl font-mono font-bold tracking-wider appearance-none bg-gray-200 py-4 px-8 w-full lg:w-3/4 xl:w-1/2"
               placeholder="you@email.com"
             />
             <label
-              className="block text-xl font-mono text-gray-800 font-bold"
+              className="block text-xl font-mono text-gray-800 font-bold mt-4"
               htmlFor="password"
             >
               Password
