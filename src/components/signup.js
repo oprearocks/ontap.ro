@@ -1,6 +1,7 @@
 import React from "react"
 import { Formik, Form, Field, ErrorMessage } from "formik"
 import { SignUpFormValidationSchema } from "../lib/form-validation-schema"
+// TODO: Don't import the whole firebase mumbo-jumbo
 import * as firebase from "firebase"
 
 const firebaseConfig = {
@@ -37,6 +38,7 @@ const SignUp = ({ focusRef }) => (
             .createUserWithEmailAndPassword(email, password)
 
           if (!user) {
+            // TODO: Use form-level errors and scces messages (provided by Formik)
             console.log(`Something went wrong, try again`)
           }
 
@@ -46,6 +48,7 @@ const SignUp = ({ focusRef }) => (
             })
           }
 
+          // TODO: Send the email then set some state var and display a message instead of the form
           const emailsent = await app.auth().currentUser.sendEmailVerification()
           console.log(
             `Congratulations ${name} we've sent you a confirmation email. Check your inbox.`
