@@ -19,9 +19,9 @@ const Login = ({ focusRef }) => {
         onSubmit={async (values, actions) => {
           const { email, password } = values
           try {
-            await auth.signin(email, password)
+            const user = await auth.signin(email, password)
 
-            if (!auth.user) {
+            if (!user) {
               // TODO: Use form-level errors and scces messages (provided by Formik)
               console.log(`Something went wrong, try again`)
               return
