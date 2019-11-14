@@ -1,29 +1,13 @@
 import React, { Fragment } from "react"
+import NothingHere from "./nothing-here"
 
-const IndexTable = props => {
+const IndexTable = ({ records }) => {
+  const noRecords = !records || records.length === 0
+
   return (
     <div className="max-w-5xl m-auto font-mono mb-20">
-      <div className="filters">
-        <select>
-          <option value="Month">Month</option>
-          <option value="Year">Year</option>
-        </select>
-        <table>
-          <tr>
-            <th>Total</th>
-          </tr>
-          <tr>
-            <td>
-              <span className="label">cold</span>111
-            </td>
-            <td>
-              <span className="label">hot</span>234
-            </td>
-          </tr>
-        </table>
-      </div>
-      <div className="overflow-x-scroll">
-        <table className="bg-white shadow-md rounded my-6 border-collapse text-center">
+      <div className="bg-white shadow-md rounded my-6 overflow-x-scroll">
+        <table className="border-collapse text-center">
           <thead>
             <tr>
               <th className="py-4 px-6 bg-gray-100 font-bold uppercase text-sm text-grey-dark border-b border-grey-light">
@@ -52,98 +36,108 @@ const IndexTable = props => {
               </th>
             </tr>
           </thead>
-          <tbody>
-            <tr className="hover:bg-gray-200">
-              <td className="py-4 px-6 border-b border-gray-300">September</td>
-              <td className="py-4 px-6 text-blue-900 border-b border-gray-300">
-                {" "}
-                234234234
-              </td>
-              <td className="py-4 px-6 text-red-900 border-b border-gray-300">
-                {" "}
-                234324324
-              </td>
-              <td className="py-4 px-6 text-blue-900 border-b border-gray-300">
-                {" "}
-                21123333
-              </td>
-              <td className="py-4 px-6 text-red-900 border-b border-gray-300">
-                {" "}
-                12344555
-              </td>
-              <td className="py-4 px-6 text-blue-900 border-b border-gray-300">
-                {" "}
-                2.34
-              </td>
-              <td className="py-4 px-6 text-red-900 border-b border-gray-300">
-                {" "}
-                11.41
-              </td>
-              <td className="py-4 px-6 border-b border-gray-300">
-                <a href="/report">Report</a>
-              </td>
-            </tr>
-            <tr className="hover:bg-gray-200">
-              <td className="py-4 px-6 border-b border-gray-300">October</td>
-              <td className="py-4 px-6 text-blue-900 border-b border-gray-300">
-                {" "}
-                234234234
-              </td>
-              <td className="py-4 px-6 text-red-900 border-b border-gray-300">
-                {" "}
-                234324324
-              </td>
-              <td className="py-4 px-6 text-blue-900 border-b border-gray-300">
-                {" "}
-                21123333
-              </td>
-              <td className="py-4 px-6 text-red-900 border-b border-gray-300">
-                {" "}
-                12344555
-              </td>
-              <td className="py-4 px-6 text-blue-900 border-b border-gray-300">
-                {" "}
-                2.34
-              </td>
-              <td className="py-4 px-6 text-red-900 border-b border-gray-300">
-                {" "}
-                11.41
-              </td>
-              <td className="py-4 px-6 border-b border-gray-300">
-                <a href="/report">Report</a>
-              </td>
-            </tr>
-            <tr className="hover:bg-gray-200">
-              <td className="py-4 px-6 border-b border-gray-300">November</td>
-              <td className="py-4 px-6 text-blue-900 border-b border-gray-300">
-                {" "}
-                234234234
-              </td>
-              <td className="py-4 px-6 text-red-900 border-b border-gray-300">
-                {" "}
-                234324324
-              </td>
-              <td className="py-4 px-6 text-blue-900 border-b border-gray-300">
-                {" "}
-                21123333
-              </td>
-              <td className="py-4 px-6 text-red-900 border-b border-gray-300">
-                {" "}
-                12344555
-              </td>
-              <td className="py-4 px-6 text-blue-900 border-b border-gray-300">
-                {" "}
-                2.34
-              </td>
-              <td className="py-4 px-6 text-red-900 border-b border-gray-300">
-                {" "}
-                11.41
-              </td>
-              <td className="py-4 px-6 border-gray-300">
-                <a href="/report">Report</a>
-              </td>
-            </tr>
-          </tbody>
+          {noRecords ? (
+            <tbody>
+              <tr>
+              <td colspan="5" className="py-8"><NothingHere /></td>
+              </tr>
+              </tbody>
+          ) : (
+            <tbody>
+              <tr className="hover:bg-gray-200">
+                <td className="py-4 px-6 border-b border-gray-300">
+                  September
+                </td>
+                <td className="py-4 px-6 text-blue-900 border-b border-gray-300">
+                  {" "}
+                  234234234
+                </td>
+                <td className="py-4 px-6 text-red-900 border-b border-gray-300">
+                  {" "}
+                  234324324
+                </td>
+                <td className="py-4 px-6 text-blue-900 border-b border-gray-300">
+                  {" "}
+                  21123333
+                </td>
+                <td className="py-4 px-6 text-red-900 border-b border-gray-300">
+                  {" "}
+                  12344555
+                </td>
+                <td className="py-4 px-6 text-blue-900 border-b border-gray-300">
+                  {" "}
+                  2.34
+                </td>
+                <td className="py-4 px-6 text-red-900 border-b border-gray-300">
+                  {" "}
+                  11.41
+                </td>
+                <td className="py-4 px-6 border-b border-gray-300">
+                  <a href="/report">Report</a>
+                </td>
+              </tr>
+              <tr className="hover:bg-gray-200">
+                <td className="py-4 px-6 border-b border-gray-300">October</td>
+                <td className="py-4 px-6 text-blue-900 border-b border-gray-300">
+                  {" "}
+                  234234234
+                </td>
+                <td className="py-4 px-6 text-red-900 border-b border-gray-300">
+                  {" "}
+                  234324324
+                </td>
+                <td className="py-4 px-6 text-blue-900 border-b border-gray-300">
+                  {" "}
+                  21123333
+                </td>
+                <td className="py-4 px-6 text-red-900 border-b border-gray-300">
+                  {" "}
+                  12344555
+                </td>
+                <td className="py-4 px-6 text-blue-900 border-b border-gray-300">
+                  {" "}
+                  2.34
+                </td>
+                <td className="py-4 px-6 text-red-900 border-b border-gray-300">
+                  {" "}
+                  11.41
+                </td>
+                <td className="py-4 px-6 border-b border-gray-300">
+                  <a href="/report">Report</a>
+                </td>
+              </tr>
+              <tr className="hover:bg-gray-200">
+                <td className="py-4 px-6 border-b border-gray-300">November</td>
+                <td className="py-4 px-6 text-blue-900 border-b border-gray-300">
+                  {" "}
+                  234234234
+                </td>
+                <td className="py-4 px-6 text-red-900 border-b border-gray-300">
+                  {" "}
+                  234324324
+                </td>
+                <td className="py-4 px-6 text-blue-900 border-b border-gray-300">
+                  {" "}
+                  21123333
+                </td>
+                <td className="py-4 px-6 text-red-900 border-b border-gray-300">
+                  {" "}
+                  12344555
+                </td>
+                <td className="py-4 px-6 text-blue-900 border-b border-gray-300">
+                  {" "}
+                  2.34
+                </td>
+                <td className="py-4 px-6 text-red-900 border-b border-gray-300">
+                  {" "}
+                  11.41
+                </td>
+                <td className="py-4 px-6 border-gray-300">
+                  <a href="/report">Report</a>
+                </td>
+              </tr>
+            </tbody>
+          )}
           <tfoot>
             <tr>
               <td className="py-4 px-6 border-b border-gray-300 bg-gray-100">
@@ -205,7 +199,7 @@ const IndexTable = props => {
                 0
               </td>
               <td className="py-4 px-6 border-b border-gray-300 bg-gray-100">
-                <button type="submit">Report</button>
+                <button type="submit">Save</button>
               </td>
             </tr>
           </tfoot>
