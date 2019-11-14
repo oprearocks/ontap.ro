@@ -40,12 +40,12 @@ const AuthenticatedNav = ({ signOut }) => (
       </Link>
     </li>
     <li className="inline-block m-2">
-      <Link
+      <a
         onClick={signOut}
         className="cta cta--small px-2 py-4 font-bold bg-white text-gray-900"
       >
         Sign Out
-      </Link>
+      </a>
     </li>
   </ul>
 )
