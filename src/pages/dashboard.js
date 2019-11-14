@@ -9,16 +9,11 @@ import bear from "../images/bear.jpg"
 import seals from "../images/seals.jpg"
 
 const DashboardPage = () => (
-  <Layout>
+  <>
     <SEO title="Welcome to the OnTap Dashboard" />
     <div className="max-w-5xl m-auto font-mono">
       <div className="text-center my-20">
-        <h3 className="leading-tight text-3xl">Salut.</h3>
-        <h2 className="leading-tight text-5xl font-bold">
-          Urăști apometrele?
-          <br />
-          Și eu.
-        </h2>
+        <h2 className="leading-tight text-5xl font-bold">Dashboard</h2>
         <img src={bear} className="w-full inline-block m-auto my-10" />
         <p className="text-xl text-left max-w-2xl m-auto">
           De fapt, nu urăsc apometrele ci faptul că o dată pe lună trebuie să
@@ -61,7 +56,7 @@ const DashboardPage = () => (
         </h2>
       </div>
     </div>
-  </Layout>
+  </>
 )
 
 export default DashboardPage

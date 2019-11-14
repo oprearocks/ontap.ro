@@ -8,7 +8,7 @@ import bear from "../images/bear.jpg"
 import seals from "../images/seals.jpg"
 
 const IndexPage = () => (
-  <Layout>
+  <>
     <SEO title="Home" />
     <div className="max-w-5xl m-auto font-mono">
       <div className="text-center my-20">
@@ -41,16 +41,26 @@ const IndexPage = () => (
         </p>
         <img src={seals} className="w-full inline-block m-auto my-10" />
         <p className="text-lg text-left max-w-2xl m-auto">
-        Obisnuiam să țin evidența consumului de apă într-un carnețel special. Dar acesta ajungea destul de repede să devină irelevant deoarece dacă omiteam să raportez consumul 2 luni la rând, pierdeam totul.
-        Ulterior, mi-am făcut un fișier Excel unde îmi înregistram indecșii. Și atunci mi-a venit ideea să creez o aplicație care să imite acel fișier excel și care să ofere funcționalitatea pentru mai mulți oameni.
+          Obisnuiam să țin evidența consumului de apă într-un carnețel special.
+          Dar acesta ajungea destul de repede să devină irelevant deoarece dacă
+          omiteam să raportez consumul 2 luni la rând, pierdeam totul. Ulterior,
+          mi-am făcut un fișier Excel unde îmi înregistram indecșii. Și atunci
+          mi-a venit ideea să creez o aplicație care să imite acel fișier excel
+          și care să ofere funcționalitatea pentru mai mulți oameni.
         </p>
       </div>
       <div className="text-center my-20">
-        <h2 className="text-3xl">Dacă și tu ai aceleași probleme existențiale..</h2>
-        <h2 className="text-5xl font-bold"><Link to="/signup" className="underline">Înregistrează-te, acum.</Link></h2>
+        <h2 className="text-3xl">
+          Dacă și tu ai aceleași probleme existențiale..
+        </h2>
+        <h2 className="text-5xl font-bold">
+          <Link to="/signup" className="underline">
+            Înregistrează-te, acum.
+          </Link>
+        </h2>
       </div>
     </div>
-  </Layout>
+  </>
 )
 
 export default IndexPage
