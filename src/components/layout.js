@@ -31,11 +31,13 @@ const Layout = ({ children }) => {
 
   return (
     <ProvideAuth>
-      <Header siteTitle={data.site.siteMetadata.title} />
-      <div>
-        <main>{children}</main>
+      <div className="flex flex-col min-h-screen justify-between relative">
+        <Header siteTitle={data.site.siteMetadata.title} />
+        <div>
+          <main>{children}</main>
+        </div>
+        <Footer />
       </div>
-      <Footer />
     </ProvideAuth>
   )
 }
