@@ -13,7 +13,9 @@ const firebaseConfig = {
   appId: process.env.FIREBASE_APP_ID,
 }
 
-firebase.initializeApp(firebaseConfig)
+if (typeof window !== "undefined") {
+  firebase.initializeApp(firebaseConfig)
+}
 
 const authContext = createContext()
 
